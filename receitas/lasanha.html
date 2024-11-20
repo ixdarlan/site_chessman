@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lasanha de Camarão</title>
+    <link rel="stylesheet" href="../src/css/receitas.css">
+</head>
+<body>
+    <header>
+        <h1>Receita: Lasanha de Camarão</h1>
+    </header>
+    <main>
+        <h2>Ingredientes</h2>
+        <img src="../src/img/lasanha.jpg" alt="Deliciosa Lasanha de Camarão Caseira">
+        <ul>
+            <li>Massa para lasanha</li>
+            <li>500g de camarão</li>
+            <li>500ml de molho de tomate</li>
+            <li>200g de queijo mussarela</li>
+            <li>Orégano</li>
+            <li>Queijo parmesão ralado (opcional)</li>
+        </ul>
+        <h2>Modo de preparo</h2>
+        <p>1. Tempere o camarão a gosto e frite. Misture com o molho de tomate.</p>
+        <p>2. Em um refratário, comece montando camadas: uma de molho, uma de massa, uma de camarão e uma de queijo.</p>
+        <p>3. Repita as camadas até terminar os ingredientes, finalizando com queijo parmesão ralado e orégano.</p>
+        <p>4. Leve ao forno pré-aquecido a 180°C por 30 minutos ou até gratinar.</p>
+        
+        <div id="links">
+            <a href="../receitas.html">Voltar às receitas</a>
+            <a href="../index.html">Voltar ao início</a>
+        </div>
+
+        <!-- Seção de Comentários -->
+        <h2>Comentários</h2>
+        <div id="comentarios">
+            <!-- Comentários serão exibidos aqui -->
+        </div>
+
+        <form id="formComentario">
+            <textarea id="comentarioText" placeholder="Deixe seu comentário..." rows="4" cols="50" required></textarea><br>
+            <button type="submit">Enviar Comentário</button>
+        </form>
+
+    </main>
+    <footer>
+        <p>© 2024 Mundo da Culinária. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const tituloReceita = "Lasanha de Camarão"; // Nome ou título único da receita
+
+        function exibirComentarios() {
+            const comentariosDiv = document.getElementById('comentarios');
+            comentariosDiv.innerHTML = ''; // Limpa os comentários existentes
+
+            const comentarios = JSON.parse(localStorage.getItem(tituloReceita)) || [];
+
+            comentarios.forEach((comentario, index) => {
+                const comentarioElemento = document.createElement('div');
+                comentarioElemento.classList.add('comentario');
+                comentarioElemento.innerHTML = `<p><strong>Comentário ${index + 1}:</strong> ${comentario}</p>`;
+                comentariosDiv.appendChild(comentarioElemento);
+            });
+        }
+
+        function adicionarComentario(event) {
+            event.preventDefault();
+
+            const comentarioText = document.getElementById('comentarioText').value;
+            if (comentarioText.trim() === '') {
+                alert('Por favor, digite um comentário.');
+                return;
+            }
+
+            const comentarios = JSON.parse(localStorage.getItem(tituloReceita)) || [];
+            comentarios.push(comentarioText);
+            localStorage.setItem(tituloReceita, JSON.stringify(comentarios));
+
+            document.getElementById('comentarioText').value = '';
+            exibirComentarios();
+        }
+
+        document.getElementById('formComentario').addEventListener('submit', adicionarComentario);
+
+        window.onload = exibirComentarios;
+    </script>
+</body>
+</html>

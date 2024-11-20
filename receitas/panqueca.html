@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/css/receitas.css">
+    <title>Panqueca Americana</title>
+</head>
+<body>
+    <header>
+        <h1>Receita: Panqueca Americana</h1>
+    </header>
+    <main>
+        <h2>Ingredientes</h2>
+        <img src="../src/img/panqueca.jpg" alt="Deliciosa Panqueca Americana">
+        <ul>
+            <li>1 xícara de farinha</li>
+            <li>1 ovo</li>
+            <li>1/2 xícara de leite</li>
+            <li>1 colher de sopa de açúcar</li>
+            <li>1 colher de chá de fermento</li>
+        </ul>
+        <h2>Modo de preparo</h2>
+        <p>1. Em uma tigela grande, adicione a farinha, o açúcar e o fermento. Misture bem esses ingredientes secos.</p>
+        <p>2. Em outra tigela, bata o ovo e adicione o leite, mexendo até que a mistura fique homogênea.</p>
+        <p>3. Faça um buraco no centro dos ingredientes secos e despeje a mistura líquida. Misture tudo com um fouet ou colher até formar uma massa sem grumos.</p>
+        <p>4. Aqueça uma frigideira antiaderente em fogo médio e unte com um pouco de manteiga ou óleo. Quando estiver bem quente, coloque pequenas porções de massa na frigideira.</p>
+        <p>5. Cozinhe por cerca de 2-3 minutos de cada lado, até que as bordas da panqueca fiquem secas e o centro comece a formar bolhas.</p>
+        <p>6. Vire a panqueca com uma espátula e cozinhe o outro lado até dourar. Repita o processo até terminar a massa.</p>
+        <p>7. Sirva as panquecas quentes com mel, frutas frescas ou calda de chocolate, conforme sua preferência.</p>
+
+        <video controls>
+            <source src="../src/video/panqueca.mp4" type="video/mp4">
+            Seu navegador não suporta o vídeo.
+        </video>
+
+        <div id="links">
+            <a href="../receitas.html">Voltar às receitas</a>
+            <a href="../index.html">Voltar ao início</a>
+        </div>
+
+        <h2>Comentários</h2>
+        <div id="comentarios">
+        </div>
+
+        <form id="formComentario">
+            <textarea id="comentarioText" placeholder="Deixe seu comentário..." rows="4" cols="50" required></textarea><br>
+            <button type="submit">Enviar Comentário</button>
+        </form>
+
+    </main>
+    <footer>
+        <p>© 2024 Mundo da Culinária. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        function exibirComentarios() {
+            const comentariosDiv = document.getElementById('comentarios');
+            comentariosDiv.innerHTML = ''; // Limpa os comentários existentes
+
+            const comentarios = JSON.parse(localStorage.getItem('comentarios')) || [];
+
+            comentarios.forEach((comentario, index) => {
+                const comentarioElemento = document.createElement('div');
+                comentarioElemento.classList.add('comentario');
+                comentarioElemento.innerHTML = `<p><strong>Comentário ${index + 1}:</strong> ${comentario}</p>`;
+                comentariosDiv.appendChild(comentarioElemento);
+            });
+        }
+
+        function adicionarComentario(event) {
+            event.preventDefault(); // Impede o envio do formulário e recarregamento da página
+
+            const comentarioText = document.getElementById('comentarioText').value;
+            if (comentarioText.trim() === '') {
+                alert('Por favor, digite um comentário.');
+                return;
+            }
+
+            const comentarios = JSON.parse(localStorage.getItem('comentarios')) || [];
+            
+            comentarios.push(comentarioText);
+            
+            localStorage.setItem('comentarios', JSON.stringify(comentarios));
+
+            document.getElementById('comentarioText').value = '';
+
+            exibirComentarios();
+        }
+
+        document.getElementById('formComentario').addEventListener('submit', adicionarComentario);
+
+        window.onload = exibirComentarios;
+    </script>
+</body>
+</html>
