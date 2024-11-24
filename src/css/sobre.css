@@ -2,29 +2,29 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
+    background-color: #4d8a4b;
     color: #333;
 }
 
 main {
-    max-width: 1200px;
-    margin: 40px auto;
+    background-color: #f9f9f9; 
     padding: 20px;
-    background-color: #fff;
+    margin: 20px auto; 
     border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
     font-size: 2.5em;
-    color: #ff7043;
+    color: #012405;
     text-align: center;
     margin-bottom: 20px;
 }
 
 h3 {
     font-size: 2em;
-    color: #ff7043;
+    color: #012405;
     margin-top: 30px;
     margin-bottom: 10px;
 }
@@ -37,7 +37,7 @@ p {
 }
 
 strong {
-    color: #ff7043;
+    color: #012405;
 }
 
 img {
@@ -48,23 +48,37 @@ img {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-footer {
-    text-align: center;
-    background-color: #ff7043;
-    color: white;
-    padding: 15px;
-    margin-top: 40px;
+section {
+    text-align: center; 
+    max-width: 800px; 
+    margin: 20px auto; 
+    padding: 20px;
+    background-color: #fff; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    border-radius: 8px; 
+}
+
+section h2, section h3 {
+    color: #012405; /
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 10px;
+}
+
+section p {
+    color: #555; 
+    line-height: 1.6; 
+    font-size: 16px; 
 }
 
 a:hover {
-    color: #d45d29;
+    color: #012405;
 }
 
 #links a {
     display: inline-block;
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #ff7043;
+    background-color: #012405;
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -73,5 +87,33 @@ a:hover {
 }
 
 #links a:hover {
-    background-color: #e64a19;
+    background-color: #012405;
+}
+a.voltar {
+    display: inline-block;
+    background-color: #012405;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+a.voltar:hover {
+    background-color: #012405;
+}
+
+footer {
+    text-align: center;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 35px; /
+    padding: 15px 10px; 
+    background-color: #012405; 
+    color: white; /
+    border-radius: 10px; 
+    font-size: 0.9rem; 
+    margin-top: 10px;
 }

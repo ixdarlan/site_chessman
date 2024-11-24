@@ -2,15 +2,16 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f6f0;
+    background-color: #4d8a4b;
     color: #333;
 }
 
 header {
     text-align: center;
-    background-color: #ff7043;
+    border-radius: 8px;
+    background-color: #012405;
     color: white;
-    padding: 30px 20px;
+    padding: 10px 20px;
 }
 
 h1 {
@@ -27,7 +28,7 @@ main {
 }
 
 h2 {
-    color: #795548;
+    color: #012405;
     margin-bottom: 20px;
     font-size: 1.8em;
 }
@@ -55,22 +56,24 @@ p {
 }
 
 a {
-    color: #ff7043;
+    color: #012405;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
 }
 
 a:hover {
-    color: #d45d29;
+    color: #012405;
 }
 
 footer {
     text-align: center;
-    background-color: #ff7043;
+    background: #012405;
     color: white;
-    padding: 15px;
-    margin-top: 40px;
+    padding: 15px 10px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    margin-top: 20px;
 }
 
 video {
@@ -102,7 +105,7 @@ textarea {
 
 button {
     padding: 10px 15px;
-    background-color: #5c6bc0;
+    background-color: #012405;
     color: white;
     border: none;
     border-radius: 5px;
@@ -112,7 +115,7 @@ button {
 }
 
 button:hover {
-    background-color: #3f4d9a;
+    background-color: #012405;
 }
 
 @media (max-width: 768px) {
@@ -134,7 +137,7 @@ button:hover {
     display: inline-block;
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #ff7043;
+    background-color: #012405;
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -143,15 +146,15 @@ button:hover {
 }
 
 #links a:hover {
-    background-color: #e64a19;
+    background-color: #012405;
 }
 
 #comentarios {
-    margin-top: 30px;
-    padding: 10px;
-    background-color: #f9f9f9;
+    margin-top: 1px;
+    padding: 0px;
+    background-color: none;
     border-radius: 8px;
-    border: 1px solid #ddd;
+    border: 1px solid none;
 }
 
 #comentarios .comentario {
@@ -162,3 +165,5 @@ button:hover {
     border: 1px solid #ddd;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+

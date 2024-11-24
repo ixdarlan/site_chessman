@@ -28,9 +28,63 @@
             <a href="../receitas.html">Voltar às receitas</a>
             <a href="../index.html">Voltar ao início</a>
         </div>
+
+        <h2>Comentários</h2>
+        <div id="comentarios">
+        </div>
+
+        <form id="formComentario">
+            <textarea id="comentarioText" placeholder="Deixe seu comentário..." rows="4" cols="50" required></textarea><br>
+            <button type="submit">Enviar Comentário</button>
+        </form>
+
     </main>
     <footer>
         <p>© 2024 Mundo da Culinária. Todos os direitos reservados.</p>
     </footer>
+
+    <script>
+        const tituloReceita = "Lasanha de Camarão"; 
+
+        function exibirComentarios() {
+            const comentariosDiv = document.getElementById('comentarios');
+            comentariosDiv.innerHTML = ''; 
+
+            const comentarios = JSON.parse(localStorage.getItem(tituloReceita)) || [];
+
+            comentarios.forEach((comentario, index) => {
+                const comentarioElemento = document.createElement('div');
+                comentarioElemento.classList.add('comentario');
+                comentarioElemento.innerHTML = `<p><strong>Comentário ${index + 1}:</strong> ${comentario}</p>`;
+                comentariosDiv.appendChild(comentarioElemento);
+            });
+        }
+
+        function adicionarComentario(event) {
+            event.preventDefault();
+
+            const comentarioText = document.getElementById('comentarioText').value;
+            if (comentarioText.trim() === '') {
+                alert('Por favor, digite um comentário.');
+                return;
+            }
+
+            const comentarios = JSON.parse(localStorage.getItem(tituloReceita)) || [];
+            comentarios.push(comentarioText);
+            localStorage.setItem(tituloReceita, JSON.stringify(comentarios));
+
+            document.getElementById('comentarioText').value = '';
+            exibirComentarios();
+        }
+
+        document.getElementById('formComentario').addEventListener('submit', adicionarComentario);
+
+        window.onload = exibirComentarios;
+    </script>
+
+    <body data-audio="../src/audio/brigadeiro_audio.mp3">
+
+        <script src="../src/js/audio.js"></script>
+
 </body>
 </html>
